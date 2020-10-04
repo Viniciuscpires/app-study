@@ -18,7 +18,7 @@ const routes: Routes = [{
   path: 'forgot',
   component: ForgotComponent
 }, {
-  path: 'sudies',
+  path: 'studies',
   component: StudiesComponent
 }, {
   path: 'profile',

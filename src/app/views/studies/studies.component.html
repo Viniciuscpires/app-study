@@ -1,1 +1,8 @@
-<p>studies works!</p>
+<div class="studies-container">
+    <app-study-card 
+        *ngFor="let study of studies;"
+        study="study"
+        class="card-item"
+    >
+    </app-study-card>
+</div>
