@@ -9,24 +9,27 @@ import { StudiesComponent } from './views/studies/studies.component'
 import { TeacherFormComponent } from './views/teacher-form/teacher-form.component'
 
 const routes: Routes = [{
-  path: '',
+  path: 'home',
   component: HomeComponent
 }, {
-  path: '/signup',
+  path: 'signup',
   component: SignupComponent
 }, {
-  path: '/forgot',
+  path: 'forgot',
   component: ForgotComponent
 }, {
-  path: '/sudies',
+  path: 'sudies',
   component: StudiesComponent
 }, {
-  path: '/profile',
+  path: 'profile',
   component: ProfileComponent
 }, {
-  path: '/teacherform',
+  path: 'teacherform',
   component: TeacherFormComponent
-}];
+}, {
+  path: '',
+  component: HomeComponent
+},];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
