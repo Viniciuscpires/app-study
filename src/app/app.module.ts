@@ -10,6 +10,7 @@ import { ProfileComponent } from './views/profile/profile.component';
 import { TeacherFormComponent } from './views/teacher-form/teacher-form.component';
 import { SignupComponent } from './views/signup/signup.component';
 import { ForgotComponent } from './views/forgot/forgot.component';
+import { LoginComponent } from './views/login/login.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ForgotComponent } from './views/forgot/forgot.component';
     ProfileComponent,
     TeacherFormComponent,
     SignupComponent,
-    ForgotComponent
+    ForgotComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

@@ -105,3 +105,5 @@ dist
 
 # Remove compressed files
 *.zip
+
+*.lock
