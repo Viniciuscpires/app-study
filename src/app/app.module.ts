@@ -11,6 +11,7 @@ import { TeacherFormComponent } from './views/teacher-form/teacher-form.componen
 import { SignupComponent } from './views/signup/signup.component';
 import { ForgotComponent } from './views/forgot/forgot.component';
 import { LoginComponent } from './views/login/login.component';
+import { StudyCardComponent } from './components/study-card/study-card.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { LoginComponent } from './views/login/login.component';
     TeacherFormComponent,
     SignupComponent,
     ForgotComponent,
-    LoginComponent
+    LoginComponent,
+    StudyCardComponent
   ],
   imports: [
     BrowserModule,

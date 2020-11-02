@@ -6,10 +6,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./studies.component.scss']
 })
 export class StudiesComponent implements OnInit {
+  studies: object[] = [];
 
   constructor() { }
 
   ngOnInit(): void {
+    this.studies = [
+      { name: 'Lucas' },
+      { name: 'Gustavo' },
+      { name: 'Vinicius' },
+      { name: 'Giovanni' }
+    ];
   }
 
 }
