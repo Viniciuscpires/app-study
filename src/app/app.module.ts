@@ -5,30 +5,28 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { HomeComponent } from './views/home/home.component';
-import { StudiesComponent } from './views/studies/studies.component';
 import { ProfileComponent } from './views/profile/profile.component';
 import { TeacherFormComponent } from './views/teacher-form/teacher-form.component';
 import { SignupComponent } from './views/signup/signup.component';
 import { ForgotComponent } from './views/forgot/forgot.component';
 import { LoginComponent } from './views/login/login.component';
-import { StudyCardComponent } from './components/study-card/study-card.component';
+import { StudiesModule } from './views/studies/studies.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     HomeComponent,
-    StudiesComponent,
     ProfileComponent,
     TeacherFormComponent,
     SignupComponent,
     ForgotComponent,
     LoginComponent,
-    StudyCardComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    StudiesModule
   ],
   providers: [],
   bootstrap: [AppComponent]
