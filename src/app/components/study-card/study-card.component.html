@@ -1,7 +1,7 @@
 <div class="card">
     <div class="card-body">
         <div class="row mb-2">
-            <div class="col-2">
+            <div class="col-2 d-flex justify-content-center">
                 <img 
                     [src]="study.photo" 
                     [alt]="study.name"
@@ -10,13 +10,12 @@
             </div>
             <div class="col-10">
                 <h5 class="card-title">{{ study.name }}</h5>
-                <p>{{ study.subject }}</p>
+                <h6 class="card-subtitle mb-2 study-card-subject">{{ study.subject }}</h6>
             </div>
         </div>
-        <div class="row">
-            <div class="col-12">
-                <p>{{ study.name }}</p>
-                <p>{{ study.subject }}</p>
+        <div class="row mb-2">
+            <div class="col-12 text-pre-wrap study-card-description">
+                {{ study.description }}
             </div>
         </div>
     </div>
