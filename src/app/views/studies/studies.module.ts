@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common';
 
 import { StudyCardComponent } from 'src/app/components/study-card/study-card.component';
 import { StudiesComponent } from './studies.component';
@@ -12,7 +12,7 @@ import { StudyFilterComponent } from './study-filter/study-filter/study-filter.c
     StudyFilterComponent
   ],
   imports: [
-    BrowserModule
+    CommonModule
   ]
 })
 export class StudiesModule {}
