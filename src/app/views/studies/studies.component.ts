@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Study } from 'src/app/components/study-card/study';
 
 @Component({
-  selector: 'app-studies',
+  selector: 'as-study-studies',
   templateUrl: './studies.component.html',
   styleUrls: ['./studies.component.scss']
 })
