@@ -1,4 +1,6 @@
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
+import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -10,7 +12,6 @@ import { SignupComponent } from './views/signup/signup.component';
 import { ForgotComponent } from './views/forgot/forgot.component';
 import { LoginComponent } from './views/login/login.component';
 import { StudiesModule } from './views/studies/studies.module';
-import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { HttpClientModule } from '@angular/common/http';
     LoginComponent,
   ],
   imports: [
+    BrowserModule,
     AppRoutingModule,
     StudiesModule,
     HttpClientModule
