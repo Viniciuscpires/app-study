@@ -1,4 +1,3 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -24,7 +23,6 @@ import { StudiesModule } from './views/studies/studies.module';
     LoginComponent,
   ],
   imports: [
-    BrowserModule,
     AppRoutingModule,
     StudiesModule
   ],
