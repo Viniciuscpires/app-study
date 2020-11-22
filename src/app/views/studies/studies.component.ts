@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Study } from 'src/app/components/study-card/study';
+import { Study } from 'src/app/services/study/study';
+import { StudyService } from 'src/app/services/study/study.service';
 
 @Component({
   selector: 'as-study-studies',
@@ -10,10 +11,12 @@ export class StudiesComponent implements OnInit {
   
   studies: Study[] = [];
 
-  constructor() { }
+  constructor(private studyService: StudyService) { }
 
   ngOnInit(): void {
-    this.studies = []
+    this.studyService
+      .getStudies()
+      .subscribe(studies => this.studies = studies)
   }
 
 }

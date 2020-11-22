@@ -10,6 +10,7 @@ import { SignupComponent } from './views/signup/signup.component';
 import { ForgotComponent } from './views/forgot/forgot.component';
 import { LoginComponent } from './views/login/login.component';
 import { StudiesModule } from './views/studies/studies.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { StudiesModule } from './views/studies/studies.module';
   ],
   imports: [
     AppRoutingModule,
-    StudiesModule
+    StudiesModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

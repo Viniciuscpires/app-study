@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Study } from './study';
+import { Study } from 'src/app/services/study/study';
 
 @Component({
   selector: 'as-study-card',
