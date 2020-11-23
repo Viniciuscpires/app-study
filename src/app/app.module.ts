@@ -10,8 +10,8 @@ import { ProfileComponent } from './views/profile/profile.component';
 import { TeacherFormComponent } from './views/teacher-form/teacher-form.component';
 import { SignupComponent } from './views/signup/signup.component';
 import { ForgotComponent } from './views/forgot/forgot.component';
-import { LoginComponent } from './views/login/login.component';
 import { StudiesModule } from './views/studies/studies.module';
+import { LoginModule } from './views/login/login.module';
 
 @NgModule({
   declarations: [
@@ -22,13 +22,13 @@ import { StudiesModule } from './views/studies/studies.module';
     TeacherFormComponent,
     SignupComponent,
     ForgotComponent,
-    LoginComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     StudiesModule,
-    HttpClientModule
+    LoginModule
   ],
   providers: [],
   bootstrap: [AppComponent]
