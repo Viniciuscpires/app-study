@@ -34,7 +34,10 @@ export class LoginFormComponent implements OnInit {
       console.log('user autheticated')
       console.log(user)
     },
-      err => console.log(err))
+      err => {
+        console.log(err)
+        alert('Invalid email or password')
+      })
   }
 
 }
