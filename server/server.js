@@ -5,12 +5,28 @@ const jwt = require('jsonwebtoken');
 
 const app = express()
 const port = 3000
+const corsOptions = {
+  exposedHeaders: ['x-access-token']
+};
 
-app.use(cors())
+app.set('secret', 'your secret phrase here');
+
+app.use(cors(corsOptions));
 
 app.use(bodyParser.json())
 
-app.set('secret', 'your secret phrase here');
+app.use((req, res, next) => {
+  const token = req.headers['x-access-token'];
+  console.log('####################################');
+  if(token) {
+      console.log('A token is send by the application');
+      console.log('Token value is ' + token);
+  } else {
+      console.log('No token is send by the the application');
+  }
+  console.log('####################################');
+  next();
+});
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
@@ -82,3 +98,12 @@ app.post('/user/login', (req, res) => {
         res.status(401).json({ message: `Authentication failed for user ${email}`});  
     }
 })
+
+app.use('*', (req, res) => {
+  res.status(404).json({ message: `route ${req.originalUrl} does not exists!` });
+});
+
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).json({ message: 'Internal server error' });
+});
