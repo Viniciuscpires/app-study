@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth/auth.service';
+import { PlatformDetectorService } from '../../../services/platform-detector/platform-detector.service';
 
 @Component({
   selector: 'as-study-login-form',
@@ -10,10 +12,13 @@ import { AuthService } from 'src/app/services/auth/auth.service';
 export class LoginFormComponent implements OnInit {
 
   loginForm: FormGroup;
+  @ViewChild('emailInput') emailInput: ElementRef<HTMLInputElement>;
 
   constructor(
     private formBuilder: FormBuilder,
-    private authService: AuthService
+    private authService: AuthService,
+    private router: Router,
+    private platformDetectorService: PlatformDetectorService
   ) { }
 
   ngOnInit(): void {
@@ -33,9 +38,12 @@ export class LoginFormComponent implements OnInit {
     ).subscribe(user => {
       console.log('user autheticated')
       console.log(user)
+      this.router.navigate(['home'])
     },
       err => {
         console.log(err)
+        this.platformDetectorService.isPlatformBrowser() && 
+          this.emailInput.nativeElement.focus()
         alert('Invalid email or password')
       })
   }
