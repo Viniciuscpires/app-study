@@ -18,8 +18,9 @@
         </li>
       </ul>
       <ul class="navbar-nav nav-item my-2 my-lg-0">
-        <li *ngIf="(user$ | async) as user; else loginBtn">
+        <li *ngIf="(user$ | async) as user; else loginBtn" class="d-flex">
           <a class="nav-link" routerLink="/profile" routerLinkActive="active">{{user.email}}</a>
+          <a class="nav-link" (click)="logout()">(Logout)</a>
         </li>
         <ng-template #loginBtn>
           <li>
