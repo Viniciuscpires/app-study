@@ -25,27 +25,27 @@ export class LoginFormComponent implements OnInit {
     this.loginForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required]
-    })
+    });
   }
 
   login() {
-    const email = this.loginForm.get('email').value
-    const password = this.loginForm.get('password').value
-    
+    const email = this.loginForm.get('email').value;
+    const password = this.loginForm.get('password').value;
+
     this.authService.authenticate(
       email,
       password
     ).subscribe(user => {
-      console.log('user autheticated')
-      console.log(user)
-      this.router.navigate(['home'])
+      console.log('user autheticated');
+      console.log(user);
+      this.router.navigate(['home']);
     },
       err => {
-        console.log(err)
-        this.platformDetectorService.isPlatformBrowser() && 
-          this.emailInput.nativeElement.focus()
-        alert('Invalid email or password')
-      })
+        console.log(err);
+        this.platformDetectorService.isPlatformBrowser() &&
+          this.emailInput.nativeElement.focus();
+        alert('Invalid email or password');
+      });
   }
 
 }

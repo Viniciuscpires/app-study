@@ -18,9 +18,14 @@
         </li>
       </ul>
       <ul class="navbar-nav nav-item my-2 my-lg-0">
-        <li>
-          <a class="nav-link" routerLink="/login" routerLinkActive="active">Login</a>
+        <li *ngIf="(user$ | async) as user; else loginBtn">
+          <a class="nav-link" routerLink="/profile" routerLinkActive="active">{{user.email}}</a>
         </li>
+        <ng-template #loginBtn>
+          <li>
+            <a class="nav-link" routerLink="/login" routerLinkActive="active">Login</a>
+          </li>
+        </ng-template>
       </ul>
     </div>
   </nav>

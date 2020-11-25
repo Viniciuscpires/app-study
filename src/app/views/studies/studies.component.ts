@@ -8,7 +8,7 @@ import { StudyService } from 'src/app/services/study/study.service';
   styleUrls: ['./studies.component.scss']
 })
 export class StudiesComponent implements OnInit {
-  
+
   studies: Study[] = [];
 
   constructor(private studyService: StudyService) { }
@@ -16,7 +16,7 @@ export class StudiesComponent implements OnInit {
   ngOnInit(): void {
     this.studyService
       .getStudies()
-      .subscribe(studies => this.studies = studies)
+      .subscribe(studies => this.studies = studies);
   }
 
 }

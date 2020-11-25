@@ -78,8 +78,7 @@ app.post('/user/login', (req, res) => {
     let user = null
     if (email === 'vinicius@gmail.com' && password === '123') {
       user = {
-        email,
-        password
+        email
       }
     }
     console.log(user);
