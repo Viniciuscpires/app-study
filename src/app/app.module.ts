@@ -21,7 +21,7 @@ import { LoginModule } from './views/login/login.module';
     ProfileComponent,
     TeacherFormComponent,
     SignupComponent,
-    ForgotComponent,
+    ForgotComponent
   ],
   imports: [
     BrowserModule,

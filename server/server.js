@@ -46,25 +46,29 @@ app.get('/studies', (req, res) => {
       name: 'Lucas',
       subject: 'Quimica',
       photo: 'https://cdn6.f-cdn.com/contestentries/1376995/30494909/5b566bc71d308_thumbCard.jpg',
-      description
+      description,
+      creationDate: '2020-11-23T07:59:51.796Z'
     },
     { 
       name: 'Gustavo',
       subject: 'Fisica',
       photo: 'https://cdn6.f-cdn.com/contestentries/1376995/30494909/5b566bc71d308_thumbCard.jpg',
-      description
+      description,
+      creationDate: '2020-11-22T09:59:51.796Z'
     },
     { 
       name: 'Vinicius',
       subject: 'Matematica',
       photo: 'https://cdn6.f-cdn.com/contestentries/1376995/30494909/5b566bc71d308_thumbCard.jpg',
-      description
+      description,
+      creationDate: '2020-11-26T12:59:51.796Z'
     },
     { 
       name: 'Giovanni',
       subject: 'Biologia',
       photo: 'https://cdn6.f-cdn.com/contestentries/1376995/30494909/5b566bc71d308_thumbCard.jpg',
-      description
+      description,
+      creationDate: '2020-11-21T15:59:51.796Z'
     }
   ]
 

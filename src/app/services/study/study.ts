@@ -3,4 +3,5 @@ export interface Study {
     subject: string;
     photo: string;
     description: string;
+    creationDate: string;
 }
