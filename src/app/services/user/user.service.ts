@@ -38,4 +38,8 @@ export class UserService {
     this.tokenService.removeToken();
     this.userSubject.next(null);
   }
+
+  isLogged() {
+    return !!this.tokenService.hasToken();
+  }
 }
