@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { PlatformDetectorService } from '../../services/platform-detector/platform-detector.service';
+import { AuthService } from '../../services/auth/auth.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'as-study-forgot',
@@ -7,9 +11,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ForgotComponent implements OnInit {
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit() {}
 
 }

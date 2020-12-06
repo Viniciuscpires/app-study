@@ -13,6 +13,7 @@ import { StudiesModule } from './views/studies/studies.module';
 import { LoginModule } from './views/login/login.module';
 import { DatabaseModule } from './database.module';
 import { SignUpModule } from './views/signup/singup.module';
+import { ForgotModule } from './views/forgot/forgot.module';
 
 
 @NgModule({
@@ -21,8 +22,7 @@ import { SignUpModule } from './views/signup/singup.module';
     HeaderComponent,
     HomeComponent,
     ProfileComponent,
-    TeacherFormComponent,
-    ForgotComponent
+    TeacherFormComponent
   ],
   imports: [
     BrowserModule,
@@ -31,6 +31,7 @@ import { SignUpModule } from './views/signup/singup.module';
     StudiesModule,
     LoginModule,
     SignUpModule,
+    ForgotModule,
     DatabaseModule
   ],
   providers: [],

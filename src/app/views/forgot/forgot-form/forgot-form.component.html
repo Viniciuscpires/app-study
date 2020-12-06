@@ -1,0 +1,49 @@
+<div class="container h-100 container-form">
+  <div class="row min-h-100 align-items-center">
+    <div class="col-12">
+      <div class="row mb-3">
+        <div class="col-12">
+          <h3>Cadastro</h3>
+          <h6 class="text-muted">Preencha os dados abaixo<br>para começar.</h6>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <form 
+            [formGroup]="forgotForm"
+            (submit)="sendResetPasswordEmail()"
+          >
+            <div class="form-group">
+              <input
+                #emailInput
+                type="email" 
+                class="form-control" 
+                id="emailInput"
+                placeholder="Email"
+                formControlName="email"
+                autofocus
+                >
+                <as-error-message
+                  message="Email is required"
+                  *ngIf="forgotForm.get('email').touched && forgotForm.get('email').errors?.required"
+                >
+                </as-error-message>
+                <as-error-message
+                  message="Email is invalid"
+                  *ngIf="forgotForm.get('email').touched && forgotForm.get('email').errors?.email"
+                >
+                </as-error-message>
+            </div>
+            <button 
+              type="submit" 
+              class="btn btn-outline-secondary btn-block"
+              [disabled]="forgotForm.invalid"
+              >
+              Enviar
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

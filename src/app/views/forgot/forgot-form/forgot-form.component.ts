@@ -5,13 +5,13 @@ import { AuthService } from 'src/app/services/auth/auth.service';
 import { PlatformDetectorService } from '../../../services/platform-detector/platform-detector.service';
 
 @Component({
-  selector: 'as-study-login-form',
-  templateUrl: './login-form.component.html',
-  styleUrls: ['./login-form.component.scss']
+  selector: 'as-study-forgot-form',
+  templateUrl: './forgot-form.component.html',
+  styleUrls: ['./forgot-form.component.scss']
 })
-export class LoginFormComponent implements OnInit {
+export class ForgotFormComponent implements OnInit {
 
-  loginForm: FormGroup;
+  forgotForm: FormGroup;
   @ViewChild('emailInput') emailInput: ElementRef<HTMLInputElement>;
 
   constructor(
@@ -22,36 +22,27 @@ export class LoginFormComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.loginForm = this.formBuilder.group({
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', Validators.required]
+    this.forgotForm = this.formBuilder.group({
+      email: ['', [Validators.required, Validators.email]]
     });
   }
 
-  login() {
-    const email = this.loginForm.get('email').value;
-    const password = this.loginForm.get('password').value;
+  sendResetPasswordEmail() {
+    const email = this.forgotForm.get('email').value;
 
-    this.authService.login(
-      email,
-      password
-    ).then(user => {
-      console.log('user autheticated');
-      console.log(user);
-      if (user.email) {
-        this.router.navigate(['home']);
+    this.authService.sendResetPasswordEmail(
+      email
+    ).then(sent => {      
+      if (sent.valid) {
+        this.router.navigate(['login']);
       } else {
-        this.loginForm.reset();
+        this.forgotForm.reset();
         this.platformDetectorService.isPlatformBrowser() &&
           this.emailInput.nativeElement.focus();
         // TODO: better error message display
-        alert(user);
+        alert(sent.message);
       }
     });
-  }
-
-  navigateToForgot() {
-    this.router.navigate(['forgot'])
   }
 
 }

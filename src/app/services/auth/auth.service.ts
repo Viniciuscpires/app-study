@@ -32,6 +32,20 @@ export class AuthService {
         }
     }
 
+    async sendResetPasswordEmail(email: string) {
+        try {
+            if (!email) throw new Error('Invalid email and/or password');
+            await this.auth.sendPasswordResetEmail(email);
+            return { valid: true };
+        } catch (error) {
+            console.log('Reset Password failed', error);
+            return {
+                valid: false,
+                message: error.message
+            };
+        }
+    }
+
     async logOut() {
         try {
             await this.auth.signOut();
