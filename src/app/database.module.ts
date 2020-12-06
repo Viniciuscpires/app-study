@@ -1,16 +1,16 @@
 import { NgModule } from '@angular/core';
 import { AngularFireModule } from '@angular/fire';
-import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from '../environments/environment';
 
 @NgModule({
   imports: [
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFireDatabaseModule
+    AngularFirestoreModule
   ],
   exports: [
     AngularFireModule,
-    AngularFireDatabaseModule
+    AngularFirestoreModule
   ]
 })
 
