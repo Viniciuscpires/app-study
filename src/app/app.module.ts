@@ -12,6 +12,8 @@ import { SignupComponent } from './views/signup/signup.component';
 import { ForgotComponent } from './views/forgot/forgot.component';
 import { StudiesModule } from './views/studies/studies.module';
 import { LoginModule } from './views/login/login.module';
+import { DatabaseModule } from './database.module';
+
 
 @NgModule({
   declarations: [
@@ -28,7 +30,8 @@ import { LoginModule } from './views/login/login.module';
     AppRoutingModule,
     HttpClientModule,
     StudiesModule,
-    LoginModule
+    LoginModule,
+    DatabaseModule
   ],
   providers: [],
   bootstrap: [AppComponent]
