@@ -3,6 +3,7 @@ import { BehaviorSubject } from 'rxjs';
 
 import { User } from './user';
 import { AngularFireAuth } from '@angular/fire/auth';
+import { AuthService } from '../auth/auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -12,11 +13,8 @@ export class UserService {
   private userSubject = new BehaviorSubject<User>(null);
   public isLogged = false;
 
-  constructor(public auth: AngularFireAuth) {
+  constructor(public auth: AngularFireAuth, private authService: AuthService) {
     this.auth.onAuthStateChanged(user => {
-      console.log('onAuthStateChanged - UserService');
-      console.log(user);
-      
       if (user) {
         this.notifyUser({ email: user.email })
         this.isLogged = true;
@@ -31,13 +29,11 @@ export class UserService {
   }
 
   notifyUser(user: User) {
-    console.log('notifyUser');
-    
     this.userSubject.next(user);
   }
 
   logout() {
     this.userSubject.next(null);
-    this.auth.signOut()
+    this.authService.logOut()
   }
 }

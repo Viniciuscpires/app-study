@@ -8,11 +8,11 @@ import { HeaderComponent } from './components/header/header.component';
 import { HomeComponent } from './views/home/home.component';
 import { ProfileComponent } from './views/profile/profile.component';
 import { TeacherFormComponent } from './views/teacher-form/teacher-form.component';
-import { SignupComponent } from './views/signup/signup.component';
 import { ForgotComponent } from './views/forgot/forgot.component';
 import { StudiesModule } from './views/studies/studies.module';
 import { LoginModule } from './views/login/login.module';
 import { DatabaseModule } from './database.module';
+import { SignUpModule } from './views/signup/singup.module';
 
 
 @NgModule({
@@ -22,7 +22,6 @@ import { DatabaseModule } from './database.module';
     HomeComponent,
     ProfileComponent,
     TeacherFormComponent,
-    SignupComponent,
     ForgotComponent
   ],
   imports: [
@@ -31,6 +30,7 @@ import { DatabaseModule } from './database.module';
     HttpClientModule,
     StudiesModule,
     LoginModule,
+    SignUpModule,
     DatabaseModule
   ],
   providers: [],

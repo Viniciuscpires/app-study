@@ -14,19 +14,30 @@ export class AuthService {
         try {
             if (!email || !password) throw new Error('Invalid email and/or password');
             const { user } = await this.auth.signInWithEmailAndPassword(email, password);
-            return true;
+            return user;
         } catch (error) {
-            console.log('Sign in failed', error);
-            return false;
+            console.log('Log in failed', error);
+            return error.message;
         }
     }
 
-    async signOut() {
+    async signUp(email: string, password: string) {
+        try {
+            if (!email || !password) throw new Error('Invalid email and/or password');
+            const { user } = await this.auth.createUserWithEmailAndPassword(email, password);
+            return user;
+        } catch (error) {
+            console.log('Sign up failed', error);
+            return error.message;
+        }
+    }
+
+    async logOut() {
         try {
             await this.auth.signOut();
             return true;
         } catch (error) {
-            console.log('Sign out failed', error);
+            console.log('logout out failed', error);
             return false;
         }
     }

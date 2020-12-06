@@ -5,13 +5,13 @@ import { AuthService } from 'src/app/services/auth/auth.service';
 import { PlatformDetectorService } from '../../../services/platform-detector/platform-detector.service';
 
 @Component({
-  selector: 'as-study-login-form',
-  templateUrl: './login-form.component.html',
-  styleUrls: ['./login-form.component.scss']
+  selector: 'as-study-signup-form',
+  templateUrl: './signup-form.component.html',
+  styleUrls: ['./signup-form.component.scss']
 })
-export class LoginFormComponent implements OnInit {
+export class SignupFormComponent implements OnInit {
 
-  loginForm: FormGroup;
+  signUpForm: FormGroup;
   @ViewChild('emailInput') emailInput: ElementRef<HTMLInputElement>;
 
   constructor(
@@ -22,26 +22,27 @@ export class LoginFormComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.loginForm = this.formBuilder.group({
+    this.signUpForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required]
     });
   }
 
-  login() {
-    const email = this.loginForm.get('email').value;
-    const password = this.loginForm.get('password').value;
+  signUp() {
+    const email = this.signUpForm.get('email').value;
+    const password = this.signUpForm.get('password').value;
 
-    this.authService.login(
+    this.authService.signUp(
       email,
       password
     ).then(user => {
-      console.log('user autheticated');
+      console.log('user created and autheticated');
       console.log(user);
+      
       if (user.email) {
         this.router.navigate(['home']);
       } else {
-        this.loginForm.reset();
+        this.signUpForm.reset();
         this.platformDetectorService.isPlatformBrowser() &&
           this.emailInput.nativeElement.focus();
         // TODO: better error message display
