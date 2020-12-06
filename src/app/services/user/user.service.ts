@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import jwt_decode from 'jwt-decode';
 
 import { User } from './user';
-import { TokenService } from '../token/token.service';
+import { AngularFireAuth } from '@angular/fire/auth';
 
 @Injectable({
   providedIn: 'root'
@@ -11,35 +10,34 @@ import { TokenService } from '../token/token.service';
 export class UserService {
 
   private userSubject = new BehaviorSubject<User>(null);
+  public isLogged = false;
 
-  constructor(
-    private tokenService: TokenService
-  ) {
-    this.tokenService.hasToken() &&
-      this.decodeAndNotify();
-  }
-
-  setToken(token: string) {
-    this.tokenService.setToken(token);
-    this.decodeAndNotify();
+  constructor(public auth: AngularFireAuth) {
+    this.auth.onAuthStateChanged(user => {
+      console.log('onAuthStateChanged - UserService');
+      console.log(user);
+      
+      if (user) {
+        this.notifyUser({ email: user.email })
+        this.isLogged = true;
+        return;
+      }
+      this.isLogged = false;
+    })
   }
 
   getUser() {
     return this.userSubject.asObservable();
   }
 
-  private decodeAndNotify() {
-    const token = this.tokenService.getToken();
-    const user = jwt_decode(token) as User;
+  notifyUser(user: User) {
+    console.log('notifyUser');
+    
     this.userSubject.next(user);
   }
 
   logout() {
-    this.tokenService.removeToken();
     this.userSubject.next(null);
-  }
-
-  isLogged() {
-    return !!this.tokenService.hasToken();
+    this.auth.signOut()
   }
 }

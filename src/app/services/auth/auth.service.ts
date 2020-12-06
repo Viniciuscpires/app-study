@@ -1,31 +1,33 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { tap } from 'rxjs/operators';
-import { UserService } from '../user/user.service';
 
-const API_URL = 'http://localhost:3000';
+import { AngularFireAuth } from '@angular/fire/auth';
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
 export class AuthService {
+    constructor(public auth: AngularFireAuth) {      
+        this.auth.setPersistence('session')
+    }
 
-  constructor(
-    private http: HttpClient,
-    private userService: UserService
-  ) { }
+    async login(email: string, password: string) {
+        try {
+            if (!email || !password) throw new Error('Invalid email and/or password');
+            const { user } = await this.auth.signInWithEmailAndPassword(email, password);
+            return true;
+        } catch (error) {
+            console.log('Sign in failed', error);
+            return false;
+        }
+    }
 
-  authenticate(email: string, password: string) {
-    return this.http.post(`${API_URL}/user/login`, {
-      email,
-      password
-    }, {
-      observe: 'response'
-    }).pipe(tap(res => {
-      const authToken = res.headers.get('x-access-token');
-      this.userService.setToken(authToken);
-      console.log(authToken);
-
-    }));
-  }
+    async signOut() {
+        try {
+            await this.auth.signOut();
+            return true;
+        } catch (error) {
+            console.log('Sign out failed', error);
+            return false;
+        }
+    }
 }

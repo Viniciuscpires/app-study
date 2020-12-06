@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "app-study-5a2ad": {
+      "hosting": {
+        "app-study": [
+          "app-study-5a2ad"
+        ]
+      }
+    }
+  }
+}

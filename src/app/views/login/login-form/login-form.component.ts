@@ -32,10 +32,10 @@ export class LoginFormComponent implements OnInit {
     const email = this.loginForm.get('email').value;
     const password = this.loginForm.get('password').value;
 
-    this.authService.authenticate(
+    this.authService.login(
       email,
       password
-    ).subscribe(user => {
+    ).then(user => {
       console.log('user autheticated');
       console.log(user);
       this.router.navigate(['home']);

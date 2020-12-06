@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { User } from 'src/app/services/user/user';
@@ -15,12 +15,16 @@ export class HeaderComponent implements OnInit {
 
   constructor(
     private userService: UserService,
-    private router: Router
+    private router: Router,
+    private cdr: ChangeDetectorRef
   ) {
     this.user$ = userService.getUser();
   }
 
   ngOnInit(): void {
+    window.setTimeout(() => {
+      this.cdr.detectChanges()
+    }, 1000)
   }
 
   logout() {
