@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { ProfileViewComponent } from './profile-view/profile-view.component';
 import { ProfileEditComponent } from './profile-edit/profile-edit.component';
 import { ProfileComponent } from './profile.component';
+import { BrowserModule } from '@angular/platform-browser';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -11,7 +13,9 @@ import { ProfileComponent } from './profile.component';
     ProfileEditComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    BrowserModule,
+    RouterModule
   ]
 })
 export class ProfileModule { }
