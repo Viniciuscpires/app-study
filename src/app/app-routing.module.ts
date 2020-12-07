@@ -24,11 +24,11 @@ const routes: Routes = [{
 }, {
   path: 'forgot',
   component: ForgotComponent,
-  canActivate: [AuthGuard]
+  canActivate: [LoginGuard]
 }, {
   path: 'signup',
   component: SignupComponent,
-  canActivate: [AuthGuard]
+  canActivate: [LoginGuard]
 }, {
   path: 'profile',
   component: ProfileComponent,
