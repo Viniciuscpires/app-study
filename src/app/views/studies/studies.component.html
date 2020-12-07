@@ -1,9 +1,35 @@
 <div class="studies-container">
     <as-study-study-filter *ngIf="false"></as-study-study-filter>
-    <as-study-card 
-        *ngFor="let study of studies;"
-        [study]="study"
-        class="card-item"
-    >
-    </as-study-card>
+    <div *ngIf="studies.length; else noResults">
+        <as-study-card 
+            *ngFor="let study of studies;"
+            [study]="study"
+            class="card-item"
+        >
+        </as-study-card>
+        <div class="d-flex justify-content-center">
+            <button
+                *ngIf="page === 2"
+                type="button"
+                class="btn btn-primary"
+                (click)="loadPreviousPage(page-1)"
+                >
+                Previous
+            </button>
+            <span class="mx-3 p-2 border">{{ page }}</span>
+            <button
+                *ngIf="page === 1"
+                type="button"
+                class="btn btn-primary"
+                (click)="loadNextPage(page+1)"
+                >
+                Next
+            </button>
+        </div>
+    </div>
+    <ng-template #noResults>
+        <div class="text-center my-5">
+            <h3>Sem resultados</h3>
+        </div>
+    </ng-template>
 </div>

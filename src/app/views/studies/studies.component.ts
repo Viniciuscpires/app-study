@@ -10,6 +10,7 @@ import { StudyService } from 'src/app/services/study/study.service';
 export class StudiesComponent implements OnInit {
 
   studies: Study[] = [];
+  page: number = 1;
 
   constructor(private studyService: StudyService) { }
 
@@ -17,6 +18,20 @@ export class StudiesComponent implements OnInit {
     this.studyService
       .getStudies()
       .subscribe(studies => this.studies = studies);
+  }
+
+  loadNextPage(page: number): void {
+    this.page = page;
+    this.studyService
+      .getStudiesPage(page)
+      .subscribe(studies => this.studies = studies); 
+  }
+
+  loadPreviousPage(page: number): void {
+    this.page = page;
+    this.studyService
+      .getStudiesPage(page)
+      .subscribe(studies => this.studies = studies); 
   }
 
 }

@@ -36,6 +36,31 @@ app.get('/', (req, res) => {
   res.send('Hello World!')
 })
 
+app.get('/studies/2', (req, res) => {
+  const description = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse posuere massa vitae sem vulputate, id interdum risus sagittis. Curabitur hendrerit gravida est, molestie rutrum massa egestas et. In luctus laoreet purus at gravida. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eget odio egestas neque consequat lobortis a ac est. Donec ac est vitae diam semper pellentesque. Nulla nec sapien mauris. Nunc lectus mi, interdum posuere cursus at, posuere vitae risus. Proin sed consequat tellus.
+
+  Nunc blandit vulputate porta. Aenean ut accumsan odio. Praesent condimentum, nibh in tempor condimentum, lectus nibh molestie sem, eget suscipit ante ex sed augue. Morbi condimentum libero a auctor mollis. Mauris enim ipsum, gravida in scelerisque et, imperdiet nec urna. Suspendisse nec accumsan libero, nec dapibus metus. Morbi consequat libero at suscipit hendrerit. Fusce lacinia ante lacinia augue hendrerit, nec volutpat lorem ultricies. Integer tempor faucibus lectus, ac egestas arcu scelerisque vitae.`
+
+  const studies = [
+    { 
+      name: 'Gustavo',
+      subject: 'Quimica',
+      photo: 'https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png',
+      description,
+      creationDate: '2020-11-23T07:59:51.796Z'
+    },
+    { 
+      name: 'Nando',
+      subject: 'Fisica',
+      photo: 'https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png',
+      description,
+      creationDate: '2020-11-22T09:59:51.796Z'
+    }
+  ]
+
+  res.json(studies)
+})
+
 app.get('/studies', (req, res) => {
   const description = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse posuere massa vitae sem vulputate, id interdum risus sagittis. Curabitur hendrerit gravida est, molestie rutrum massa egestas et. In luctus laoreet purus at gravida. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eget odio egestas neque consequat lobortis a ac est. Donec ac est vitae diam semper pellentesque. Nulla nec sapien mauris. Nunc lectus mi, interdum posuere cursus at, posuere vitae risus. Proin sed consequat tellus.
 

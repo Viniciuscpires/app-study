@@ -16,4 +16,12 @@ export class StudyService {
     return this.http
       .get<Study[]>(`${API_URL}/studies`);
   }
+
+  getStudiesPage(page: number) {
+    if (page === 1) {
+      return this.getStudies();
+    }
+    return this.http
+      .get<Study[]>(`${API_URL}/studies/${page}`);
+  }
 }
