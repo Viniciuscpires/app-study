@@ -1,1 +1,38 @@
-<p>profile-edit works!</p>
+<div class="container h-100 container-form">
+  <div class="row min-h-100 align-items-center">
+    <div class="col-12">
+      <div class="row mb-3">
+        <div class="col-12 mt-5">
+          <h3>Seus dados</h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <form 
+            [formGroup]="profileForm"
+            (submit)="saveProfile()"
+          >
+            <div class="form-group">
+              <as-basic-info-form
+                (profileForm)="profileForm"
+              ></as-basic-info-form>
+              <as-subject-info-form
+                (profileForm)="profileForm"
+              ></as-subject-info-form>
+              <as-schedule-form
+                (profileForm)="profileForm"
+              ></as-schedule-form>
+            </div>
+            <button 
+              type="submit" 
+              class="btn btn-outline-secondary btn-block"
+              [disabled]="profileForm.invalid"
+              >
+              Salvar
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

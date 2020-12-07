@@ -1,0 +1,21 @@
+<div class="form-group">
+  <input
+    #emailInput
+    type="email" 
+    class="form-control" 
+    id="emailInput"
+    placeholder="Email"
+    formControlName="email"
+    autofocus
+    >
+    <as-error-message
+      message="Email is required"
+      *ngIf="profileForm.get('email').touched && profileForm.get('email').errors?.required"
+    >
+    </as-error-message>
+    <as-error-message
+      message="Email is invalid"
+      *ngIf="profileForm.get('email').touched && profileForm.get('email').errors?.email"
+    >
+    </as-error-message>
+</div>

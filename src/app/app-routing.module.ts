@@ -11,6 +11,7 @@ import { StudiesComponent } from './views/studies/studies.component';
 import { ProfileViewComponent } from './views/profile/profile-view/profile-view.component';
 import { ProfileEditComponent } from './views/profile/profile-edit/profile-edit.component';
 import { ProfileGuard } from './services/profile/profile.guard';
+import { LoginGuard } from './services/auth/login.guard';
 
 const routes: Routes = [{
   path: 'home',
@@ -19,7 +20,7 @@ const routes: Routes = [{
 }, {
   path: 'login',
   component: LoginComponent,
-  canActivate: [AuthGuard]
+  canActivate: [LoginGuard]
 }, {
   path: 'forgot',
   component: ForgotComponent,
@@ -32,6 +33,7 @@ const routes: Routes = [{
   path: 'profile',
   component: ProfileComponent,
   canActivate: [ProfileGuard],
+  canActivateChild: [ProfileGuard],
   children: [
     { path: '', component: ProfileViewComponent },
     { path: 'edit', component: ProfileEditComponent },
