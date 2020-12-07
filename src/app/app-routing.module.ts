@@ -8,33 +8,42 @@ import { LoginComponent } from './views/login/login.component';
 import { ProfileComponent } from './views/profile/profile.component';
 import { SignupComponent } from './views/signup/signup.component';
 import { StudiesComponent } from './views/studies/studies.component';
-import { TeacherFormComponent } from './views/teacher-form/teacher-form.component';
+import { ProfileViewComponent } from './views/profile/profile-view/profile-view.component';
+import { ProfileEditComponent } from './views/profile/profile-edit/profile-edit.component';
+import { ProfileGuard } from './services/profile/profile.guard';
 
 const routes: Routes = [{
-  path: 'forgot',
-  component: ForgotComponent
-}, {
   path: 'home',
-  component: HomeComponent
+  component: HomeComponent,
+  canActivate: [AuthGuard]
 }, {
   path: 'login',
   component: LoginComponent,
   canActivate: [AuthGuard]
 }, {
-  path: 'profile',
-  component: ProfileComponent
+  path: 'forgot',
+  component: ForgotComponent,
+  canActivate: [AuthGuard]
 }, {
   path: 'signup',
-  component: SignupComponent
+  component: SignupComponent,
+  canActivate: [AuthGuard]
+}, {
+  path: 'profile',
+  component: ProfileComponent,
+  canActivate: [ProfileGuard],
+  children: [
+    { path: '', component: ProfileViewComponent },
+    { path: 'edit', component: ProfileEditComponent },
+  ],
 }, {
   path: 'studies',
-  component: StudiesComponent
-}, {
-  path: 'teacherform',
-  component: TeacherFormComponent
+  component: StudiesComponent,
+  canActivate: [AuthGuard]
 }, {
   path: '',
-  component: HomeComponent
+  component: HomeComponent,
+  canActivate: [AuthGuard]
 }];
 
 @NgModule({
