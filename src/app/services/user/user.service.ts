@@ -34,6 +34,6 @@ export class UserService {
 
   logout() {
     this.userSubject.next(null);
-    this.authService.logOut()
+    return this.authService.logOut()
   }
 }
